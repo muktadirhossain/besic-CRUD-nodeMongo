@@ -11,7 +11,7 @@ const asyncHandler = require("express-async-handler");
 const Contact = require("../model/contactModel");
 
 // @description: Get all the contacts.
-// @route GET /api/contacts
+// @route GET /api/contact
 // @access Public
 const getContact = async (req, res) => {
   const contacts = await Contact.find();
@@ -29,7 +29,7 @@ const createContact = asyncHandler(async (req, res) => {
     throw new Error("Please provide all the required fields");
   }
   const contact = await Contact.create({ name, email, phone });
-  res.status(200).json(contact);
+  res.status(201).json(contact);
 });
 // @description: Get contact By ID.
 // @route GET /api/contacts/:id
